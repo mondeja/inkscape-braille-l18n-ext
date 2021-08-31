@@ -8,7 +8,7 @@ text-to-Braille converter.
 | Locale | Description |
 | ------ | ----------- |
 | English | [North American Braille ASCII code][en-wiki] |
-| Spanish | [Braille español (Grado 1)][es-wiki] |
+| Spanish | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 
 ## Installation
 
@@ -25,8 +25,12 @@ chosse a locale and apply.
 
 ## TODO
 
-- [ ] Spanish Braille conversion for texts not prepared for Braille
- translation. Add prefixes before numbers and before uppercased letters. 
+- [x] ~~Spanish Braille conversion for texts not prepared for Braille
+ translation. Add prefixes before numbers and before uppercased letters.~~
+- [ ] Catalán/valenciano (https://www.once.es/servicios-sociales/braille)
+- [ ] Gallego
+- [ ] Euskera
 
 [en-wiki]: https://en.wikipedia.org/wiki/Braille_ASCII
-[es-wiki]: https://es.wikipedia.org/wiki/Braille_espa%C3%B1ol
+[es-cbe-guide]: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
+[cbe-once]: https://www.once.es/servicios-sociales/braille/comision-braille-espanola/comision-braille-espanola-cbe

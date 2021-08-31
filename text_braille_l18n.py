@@ -14,23 +14,26 @@ def en_char_map(char):
     return chr(mapint + 0x2801)
 
 def es_char_map(char):
-    # https://es.wikipedia.org/wiki/Braille_espa%C3%B1ol
+    # https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     if char.isnumeric():
-        return chr({
-            # numbers
-            "1": 0x2801,
-            "2": 0x2803,
-            "3": 0x2809,
-            "4": 0x2819,
-            "5": 0x2811,
-            "6": 0x280B,
-            "7": 0x281b,
-            "8": 0x2813,
-            "9": 0x280a,
-            "0": 0x281a,
-        }[char])
+        # numeric prefix + number
+        return "".join([
+            chr(0x283c),
+            chr({
+                "1": 0x2801,
+                "2": 0x2803,
+                "3": 0x2809,
+                "4": 0x2819,
+                "5": 0x2811,
+                "6": 0x280B,
+                "7": 0x281b,
+                "8": 0x2813,
+                "9": 0x280a,
+                "0": 0x281a,
+            }[char]),
+        ])
     try:
-        return chr({
+        bchar = chr({
             # letters
             "A": 0x2801,
             "B": 0x2803,
@@ -70,6 +73,7 @@ def es_char_map(char):
             "&": 0x282f,
             ".": 0x2804,
             ",": 0x2802,
+            ":": 0x2812,
             ";": 0x2806,
             "¿": 0x2822,
             "?": 0x2822,
@@ -87,6 +91,9 @@ def es_char_map(char):
         }[char.upper()])
     except KeyError:
         return char
+    else:
+        # if uppercase, add uppercase prefix before letter
+        return "".join([chr(0x2828) if char.isupper() else '', bchar])
 
 LOCALE_CHARMAPS = {
     "en": en_char_map,
