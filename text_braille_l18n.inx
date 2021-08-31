@@ -5,8 +5,8 @@
     <id>org.inkscape.TextBrailleL18n</id>
     <dependency type="executable" location="extensions">text_braille_l18n.py</dependency>
 
-    <param name="locale" gui-text="Localization:" type="optiongroup" appearance="combo">
-        <option value="en">ASCII (English)</option>
+    <param name="locale" gui-text="Alphabet:" type="optiongroup" appearance="combo">
+        <option value="en">English (ASCII)</option>
         <option value="es">Spanish</option>
     </param>
 

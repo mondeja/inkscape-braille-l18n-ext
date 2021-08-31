@@ -21,7 +21,7 @@ text-to-Braille converter.
 ## How to use
 
 Select a text that you want to convert in Braille, open this extension,
-chosse a locale and apply.
+choose a locale and press `Apply`.
 
 ## TODO
 
