@@ -8,7 +8,8 @@ import inkex
 def en_char_map(char):
     try:
         # https://en.wikipedia.org/wiki/Braille_ASCII#Braille_ASCII_values
-        mapint = "A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)=".index(char.upper())
+        mapint = ("A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,"
+                  "*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)=").index(char.upper())
     except ValueError:
         return char
     return chr(mapint + 0x2801)
@@ -90,13 +91,36 @@ def es_char_map(char):
             "÷": 0x2832,
             "+": 0x2816,
             "@": 0x2810,
+            " ": 0x2800,  # braille space
 
             # prefixes
             chr(15): 0x2828,  # uppercase prefix: https://codepoints.net/U+000F
             "#": 0x283c,      # numerical prefix
         }[char.upper()])
     except KeyError:
-        return char
+        try:
+            # combinations
+            return {
+                "%": chr(0x2838) + chr(0x2834),
+                "‰": chr(0x2838) + chr(0x2834) + chr(0x2834),  # per mile
+                "©": chr(0x2823) + chr(0x2828) + chr(0x2809) + chr(0x281c),
+                "®": chr(0x2823) + chr(0x2828) + chr(0x2817) + chr(0x281c),
+                "/": chr(0x2820) + chr(0x2802),
+                "\\": chr(0x2810) + chr(0x2804),
+                "<": chr(0x2810) + chr(0x2805),
+                ">": chr(0x2828) + chr(0x2802),
+                "|": chr(0x2838) + chr(0x2807),
+
+                # currencies
+                "€": chr(0x2838) + chr(0x2811),
+                "$": chr(0x2838) + chr(0x280e),
+                "¢": chr(0x2818) + chr(0x2809),
+                "£": chr(0x2810) + chr(0x282e),
+                "¥": chr(0x2838) + chr(0x283d),
+                "￥": chr(0x2838) + chr(0x283d),
+            }[char]
+        except KeyError:
+            return char
     else:
         # if uppercase, add uppercase prefix before letter
         return "".join([chr(0x2828) if char.isupper() else '', bchar])

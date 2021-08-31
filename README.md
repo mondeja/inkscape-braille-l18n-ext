@@ -27,9 +27,10 @@ choose a locale and press `Apply`.
 
 - [x] ~~Spanish Braille conversion for texts not prepared for Braille
  translation. Add prefixes before numbers and before uppercased letters.~~
-- [ ] Catalán/valenciano (https://www.once.es/servicios-sociales/braille)
-- [ ] Gallego
-- [ ] Euskera
+- [ ] Catalán/valenciano ([link](https://www.once.es/servicios-sociales/braille))
+- [ ] Gallego ([link](https://www.once.es/servicios-sociales/braille))
+- [ ] Euskera ([link](https://www.once.es/servicios-sociales/braille))
+- [x] ~~Spanish combinations ([link](https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf))~~
 
 [en-wiki]: https://en.wikipedia.org/wiki/Braille_ASCII
 [es-cbe-guide]: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
