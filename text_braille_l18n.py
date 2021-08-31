@@ -85,8 +85,11 @@ def es_char_map(char):
             "(": 0x2823,
             ")": 0x281c,
             "-": 0x2824,
-            "‒": 0x2824,
             "*": 0x2814,
+            "=": 0x2836,
+            "÷": 0x2832,
+            "+": 0x2816,
+            "@": 0x2810,
 
             # prefixes
             chr(15): 0x2828,  # uppercase prefix: https://codepoints.net/U+000F
