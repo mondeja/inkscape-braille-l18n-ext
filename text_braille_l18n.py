@@ -36,6 +36,7 @@ def es_char_map(char):
         bchar = chr({
             # letters
             "A": 0x2801,
+            "ª": 0x2801,  # ordinal (feminine)
             "B": 0x2803,
             "C": 0x2809,
             "D": 0x2819,
@@ -51,6 +52,7 @@ def es_char_map(char):
             "N": 0x281d,
             "Ñ": 0x283b,
             "O": 0x2815,
+            "º": 0x2815,  # ordinal (masculine)
             "P": 0x280f,
             "Q": 0x281f,
             "R": 0x2817,
@@ -83,6 +85,7 @@ def es_char_map(char):
             "(": 0x2823,
             ")": 0x281c,
             "-": 0x2824,
+            "‒": 0x2824,
             "*": 0x2814,
 
             # prefixes
