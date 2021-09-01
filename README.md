@@ -1,7 +1,6 @@
 # Braille l18n Inkscape extension
 
-This extension adds localized capabilities to Inkscape's built-in
-text-to-Braille converter.
+Text-to-Braille Inkscape extension with multiple localized alphabets.
 
 ## Supported alphabets
 
