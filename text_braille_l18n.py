@@ -6,8 +6,8 @@ __version__ = "0.0.1"
 import inkex
 
 def en_char_map(char):
+    # https://en.wikipedia.org/wiki/Braille_ASCII#Braille_ASCII_values
     try:
-        # https://en.wikipedia.org/wiki/Braille_ASCII#Braille_ASCII_values
         mapint = ("A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,"
                   "*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)=").index(char.upper())
     except ValueError:
@@ -110,6 +110,9 @@ def es_char_map(char):
                 "<": chr(0x2810) + chr(0x2805),
                 ">": chr(0x2828) + chr(0x2802),
                 "|": chr(0x2838) + chr(0x2807),
+                "{": chr(0x2810) + chr(0x2807),
+                "}": chr(0x2838) + chr(0x2802),
+                "—": chr(0x2824) + chr(0x2824),
 
                 # currencies
                 "€": chr(0x2838) + chr(0x2811),
