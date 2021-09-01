@@ -12,4 +12,16 @@ Implementation of [CBE guide][cbe-guide] for uniformed Spanish Braille.
  must be preceded by a numeric prefix `⠼` in the first number only. But
  this implementation currently precede the numerical prefix before any number.
 
+## Galician - Braille español (Grado 1)
+
+Uses same implementation as Spanish.
+
+## Basque - Braille español (Grado 1)
+
+Uses same implementation as Spanish.
+
+# Other useful resources
+
+- [World Braille Usage][world-braille-usage]
+
 [cbe-guide]: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf

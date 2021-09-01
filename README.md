@@ -25,18 +25,14 @@ text-to-Braille converter.
 Select a text that you want to convert in Braille, open this extension,
 choose a locale and press `Apply`.
 
-## Useful resources
-
-- [World Braille Usage][world-braille-usage]
-
 ## TODO
 
 - [x] ~~Spanish Braille conversion for texts not prepared for Braille
  translation. Add prefixes before numbers and before uppercased letters.~~
-- [ ] Catalán/valenciano ([link](https://www.once.es/servicios-sociales/braille))
-- [ ] Gallego ([link](https://www.once.es/servicios-sociales/braille))
-- [ ] Euskera ([link](https://www.once.es/servicios-sociales/braille))
-- [x] ~~Spanish combinations ([link](https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf))~~
+- [ ] Catalán/valenciano
+- [x] ~~Gallego~~
+- [x] ~~Euskera~~
+- [x] ~~Spanish combinations~~
 
 [notes]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/NOTES.md
 [download-repo]: https://github.com/mondeja/inkscape-braille-l18n-ext/archive/refs/heads/master.zip

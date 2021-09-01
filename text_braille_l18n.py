@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-__version__ = "0.0.1"
-
 import inkex
 
 def en_char_map(char):
@@ -105,6 +103,8 @@ def es_char_map(char):
                 "‰": chr(0x2838) + chr(0x2834) + chr(0x2834),  # per mile
                 "©": chr(0x2823) + chr(0x2828) + chr(0x2809) + chr(0x281c),
                 "®": chr(0x2823) + chr(0x2828) + chr(0x2817) + chr(0x281c),
+                "℗": chr(0x2823) + chr(0x2828) + chr(0x280f) + chr(0x281c),
+                "🄯": chr(0x2823) + chr(0x2828) + chr(0x2807) + chr(0x281c),
                 "/": chr(0x2820) + chr(0x2802),
                 "\\": chr(0x2810) + chr(0x2804),
                 "<": chr(0x2810) + chr(0x2805),
@@ -131,6 +131,8 @@ def es_char_map(char):
 LOCALE_CHARMAPS = {
     "en": en_char_map,
     "es": es_char_map,
+    "gl": es_char_map,  # Galician uses Spanish alphabet
+    "eu": es_char_map,  # Euskera hasn't accent marks, so use Spanish alphabet
 }
 
 class BrailleL18n(inkex.TextExtension):

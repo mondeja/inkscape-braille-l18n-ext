@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
     <_name>Convert to localized Braille</_name>
-
     <id>org.inkscape.TextBrailleL18n</id>
+
     <dependency type="executable" location="extensions">text_braille_l18n.py</dependency>
 
     <param name="locale" gui-text="Alphabet:" type="optiongroup" appearance="combo">
         <option value="en">English (ASCII)</option>
         <option value="es">Spanish</option>
+        <option value="gl">Galician</option>
+        <option value="eu">Basque</option>
     </param>
 
     <effect>
