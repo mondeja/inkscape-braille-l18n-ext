@@ -10,6 +10,7 @@
         <option value="es">Spanish</option>
         <option value="gl">Galician</option>
         <option value="eu">Basque</option>
+        <option value="ca">Catalan/Valencian</option>
     </param>
 
     <effect>

@@ -9,6 +9,9 @@ text-to-Braille converter.
 | ------ | ----------- |
 | English | [North American Braille ASCII code][en-wiki] |
 | Spanish | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
+| Galician | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
+| Euskera | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
+| Catalan/Valencian | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 
 > See [`NOTES.md`][notes] to check the limitations of each implementation.
 
@@ -20,19 +23,12 @@ text-to-Braille converter.
  `Preferences` -> `System` -> `Users extensions`.
 1. Run Inkscape and you'll see the extension in `Extensions` -> `Text`.
 
-## How to use
+## Usage
 
-Select a text that you want to convert in Braille, open this extension,
-choose a locale and press `Apply`.
-
-## TODO
-
-- [x] ~~Spanish Braille conversion for texts not prepared for Braille
- translation. Add prefixes before numbers and before uppercased letters.~~
-- [ ] Catalán/valenciano
-- [x] ~~Gallego~~
-- [x] ~~Euskera~~
-- [x] ~~Spanish combinations~~
+1. Select a text that you want to convert in Braille.
+1. Open this extension.
+1. Choose an alphabet for character mappings.
+1. Press `Apply`.
 
 [notes]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/NOTES.md
 [download-repo]: https://github.com/mondeja/inkscape-braille-l18n-ext/archive/refs/heads/master.zip

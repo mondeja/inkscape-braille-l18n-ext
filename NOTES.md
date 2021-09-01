@@ -20,6 +20,11 @@ Uses same implementation as Spanish.
 
 Uses same implementation as Spanish.
 
+## Catalan/Valencian
+
+- Uses same implementation as Spanish except for accent marks which differs.
+- The character "L geminate" has not been found in unicode database.
+
 # Other useful resources
 
 - [World Braille Usage][world-braille-usage]
