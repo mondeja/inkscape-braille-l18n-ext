@@ -32,4 +32,4 @@ jobs:
       - name: Start Xvfb in background
         run: sudo /usr/bin/Xvfb $DISPLAY -screen 0 1280x1024x24 &
       - name: Run tests
-        run: sh tests/run.sh
+        run: DEBUG=1 sh tests/run.sh
