@@ -64,6 +64,7 @@ configure_profile_preferences() {
 }
 
 get_locales() {
+  # read all locales from inx extension file
   echo "$(< "$PWD/text_braille_l18n.inx" grep '<option value=' | cut -d'"' -f2)"
 }
 
@@ -114,8 +115,11 @@ test_extension_effect() {
 }
 
 run_tests() {
-  # read possible locales from inx extension file
   get_locales | tr ' ' '\n' | while read locale; do
+    # filter locales if 'LOCALE' environment variable is specified
+    if [ -n "$LOCALES" ] && [ -z "$(printf "$LOCALES" | grep -o "$locale")" ]; then
+      continue
+    fi
     test_extension_effect "$locale"
   done
 }

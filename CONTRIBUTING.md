@@ -15,11 +15,12 @@ and test.
 ## Test your changes
 
 - `sh tests/run.sh`: Run tests.
+- `LOCALES=en,es sh tests/run.sh`: Run tests for specified alphabets.
 - `DEBUG=1 sh tests/run.sh`: Run tests showing all executed commands (mainly
  for tests script debugging).
 
 You'll see that a folder is created under `tests/tmp/` where the output for
-every locale is stored.
+each locale is stored.
 
 [xvfb-package]: https://packages.debian.org/es/sid/xvfb
 [ext-inx]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/text_braille_l18n.inx
