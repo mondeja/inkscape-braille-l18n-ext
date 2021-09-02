@@ -51,7 +51,7 @@ move_extension_to_user_extensions_directory() {
 configure_profile_preferences() {
   locale="$1"
   preferences_filepath="$(inkscape --user-data-directory)/preferences.xml"
-  locale_pref="$(< $preferences_filepath grep -o "org.inkscape.text.braille-l18n.locale")"
+  locale_pref="$(< $preferences_filepath grep -o "org.inkscape.text.braille-l18n.locale" || true)"
 
   # if locale preference is present
   if [ -n "$locale_pref" ]; then
@@ -95,7 +95,7 @@ test_extension_effect() {
   configure_profile_preferences "$locale"
 
   # run extension using inkscape in headless mode with Xvfb
-  xvfb-run inkscape \
+  xvfb-run --auto-servernum inkscape \
     --batch-process \
     --export-plain-svg \
     --vacuum-defs \
@@ -106,7 +106,7 @@ test_extension_effect() {
   extract_svg_output_text "$svg_output_filepath" > "$txt_output_filepath"
 
   if ! diff --brief "$txt_output_filepath" "$txt_expect_filepath"; then
-    printf "Red: $txt_output_filepath - Green: $txt_expect_filepath\n"
+    printf "<: $txt_output_filepath\n>: $txt_expect_filepath\n"
     # ignore error (or file exits due to 'set -e')
     diff --color "$txt_output_filepath" "$txt_expect_filepath" || true
     printf "\n"

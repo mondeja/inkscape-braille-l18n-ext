@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - v*
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        inkscape-ppa:
+          - stable
+          - stable-1.1
+      fail-fast: false
+    env:
+      DISPLAY: :0
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: sudo apt-get install -y xvfb
+      - name: Install Inkscape
+        run: |
+          sudo add-apt-repository ppa:inkscape.dev/${{ matrix.inkscape-ppa }}
+          sudo apt-get update
+          sudo apt-get install -y inkscape
+      - name: Start Xvfb in background
+        run: sudo /usr/bin/Xvfb $DISPLAY -screen 0 1280x1024x24 &
+      - name: Run tests
+        run: sh tests/run.sh
