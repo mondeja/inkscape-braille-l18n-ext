@@ -16,7 +16,6 @@ jobs:
     strategy:
       matrix:
         inkscape-ppa:
-          - stable-0.92
           - stable
           - stable-1.1
       fail-fast: false
