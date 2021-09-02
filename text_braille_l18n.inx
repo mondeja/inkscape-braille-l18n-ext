@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <_name>Convert to localized Braille</_name>
-    <id>org.inkscape.TextBrailleL18n</id>
+    <name>Convert to localized Braille</name>
+    <id>org.inkscape.text.braille-l18n</id>
 
     <dependency type="executable" location="extensions">text_braille_l18n.py</dependency>
 

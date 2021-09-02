@@ -17,9 +17,9 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 ## Installation
 
 1. [Download][download-repo] and extract this repository.
-1. Move [text_braille_l18n.inx][ext-inx] and [text_braille_l18n.py][ext-py] files to your user's
- extensions directory. If you don't know its location, open it from `Edit` ->
- `Preferences` -> `System` -> `Users extensions`.
+1. Move [text_braille_l18n.inx][ext-inx] and [text_braille_l18n.py][ext-py]
+ files to your user's extensions directory. If you don't know its location,
+ open it from `Edit` -> `Preferences` -> `System` -> `Users extensions`.
 1. Run Inkscape and you'll see the extension in `Extensions` -> `Text`.
 
 ## Usage
