@@ -106,7 +106,7 @@ test_extension_effect() {
   extract_svg_output_text "$svg_output_filepath" > "$txt_output_filepath"
 
   if ! diff --brief "$txt_output_filepath" "$txt_expect_filepath"; then
-    printf "Red: $txt_output_filepath - Green: $txt_expect_filepath\n"
+    printf "<: $txt_output_filepath\n>: $txt_expect_filepath\n"
     # ignore error (or file exits due to 'set -e')
     diff --color "$txt_output_filepath" "$txt_expect_filepath" || true
     printf "\n"
