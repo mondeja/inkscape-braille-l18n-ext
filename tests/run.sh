@@ -51,7 +51,7 @@ move_extension_to_user_extensions_directory() {
 configure_profile_preferences() {
   locale="$1"
   preferences_filepath="$(inkscape --user-data-directory)/preferences.xml"
-  locale_pref="$(< $preferences_filepath grep -o "org.inkscape.text.braille-l18n.locale")"
+  locale_pref="$(< $preferences_filepath grep -o "org.inkscape.text.braille-l18n.locale" || true)"
 
   # if locale preference is present
   if [ -n "$locale_pref" ]; then
