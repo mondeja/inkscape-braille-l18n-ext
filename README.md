@@ -1,5 +1,9 @@
 # Braille l18n Inkscape extension
 
+![Inkscape versions][inkscape-versions-badge]
+[![Tests][tests-image]][tests-link]
+[![License][license-image]][license-link]
+
 Text-to-Braille Inkscape extension with multiple localized alphabets.
 
 ## Supported alphabets
@@ -28,6 +32,14 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 1. Open this extension.
 1. Choose an alphabet for character mappings.
 1. Press `Apply`.
+
+<!-- Badges -->
+
+[inkscape-versions-badge]: https://img.shields.io/static/v1?label=inkscape&message=1.0%20|%201.1&color=blue&logo=Inkscape
+[tests-image]: https://img.shields.io/github/workflow/status/mondeja/inkscape-braille-l18n-ext/CI?logo=github&label=tests
+[tests-link]: https://github.com/mondeja/inkscape-braille-l18n-ext/actions?query=workflow%3ACI
+[license-image]: https://img.shields.io/static/v1?label=license&message=BSD-3-Clause&color=brightgreen&logo=freebsd
+[license-link]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/LICENSE
 
 <!-- Internal links -->
 
