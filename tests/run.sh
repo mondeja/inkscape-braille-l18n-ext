@@ -95,7 +95,7 @@ test_extension_effect() {
   configure_profile_preferences "$locale"
 
   # run extension using inkscape in headless mode with Xvfb
-  xvfb-run inkscape \
+  xvfb-run --auto-servernum inkscape \
     --batch-process \
     --export-plain-svg \
     --vacuum-defs \

@@ -28,6 +28,4 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y inkscape
       - name: Run tests
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: sh tests/run.sh
+        run: sh tests/run.sh
