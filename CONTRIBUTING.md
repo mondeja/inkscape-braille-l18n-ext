@@ -21,6 +21,6 @@ and test.
 You'll see that a folder is created under `tests/tmp/` where the output for
 every locale is stored.
 
-[xvfb]: https://packages.debian.org/es/sid/xvfb
+[xvfb-package]: https://packages.debian.org/es/sid/xvfb
 [ext-inx]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/text_braille_l18n.inx
 [ext-py]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/text_braille_l18n.py
