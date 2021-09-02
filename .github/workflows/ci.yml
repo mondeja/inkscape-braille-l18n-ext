@@ -21,11 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: sudo apt-get install xvfb
+        run: sudo apt-get install -y xvfb
       - name: Install Inkscape
         run: |
           sudo add-apt-repository ppa:inkscape.dev/${{ matrix.inkscape-ppa }}
           sudo apt-get update
-          sudo apt-get install inkscape
+          sudo apt-get install -y inkscape
       - name: Run tests
-        run: sh tests/run.sh
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: sh tests/run.sh
