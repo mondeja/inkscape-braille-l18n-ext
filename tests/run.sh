@@ -129,7 +129,7 @@ cleanup_and_exit() {
     exitcode="$(cat tests/tmp/exitcode)"
     rm tests/tmp/exitcode
   else
-    exitcode=1
+    exitcode=0
   fi
   exit $exitcode
 }
