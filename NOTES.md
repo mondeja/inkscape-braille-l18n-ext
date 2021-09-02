@@ -2,11 +2,11 @@
 
 ## English - North American Braille ASCII code
 
-Same implementation as the current Inkscape `text_braille`  extension.
+Implementation of [North American Braille ASCII code][en-wiki].
 
 ## Spanish - Braille español (Grado 1)
 
-Implementation of [CBE guide][cbe-guide] for uniformed Spanish Braille.
+Implementation of [CBE guide][cbe-guide].
 
 - According to the guide, numbers with 10 or more digits and telephone numbers
  must be preceded by a numeric prefix `⠼` in the first number only. But
@@ -29,4 +29,5 @@ Uses same implementation as Spanish.
 
 - [World Braille Usage][world-braille-usage]
 
+[en-wiki]: https://en.wikipedia.org/wiki/Braille_ASCII
 [cbe-guide]: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
