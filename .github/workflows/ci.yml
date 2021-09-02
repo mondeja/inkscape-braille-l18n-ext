@@ -18,6 +18,8 @@ jobs:
         inkscape-ppa:
           - stable
           - stable-1.1
+    env:
+      DISPLAY: :0
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
@@ -28,6 +30,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y inkscape
       - name: Start Xvfb in background
-        run: sudo /usr/bin/Xvfb :0 -screen 0 1280x1024x24 &
+        run: sudo /usr/bin/Xvfb $DISPLAY -screen 0 1280x1024x24 &
       - name: Run tests
         run: sh tests/run.sh
