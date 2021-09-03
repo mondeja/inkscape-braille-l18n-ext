@@ -7,6 +7,10 @@ import inkex
 
 # UTILITIES
 
+UPPERCASE_PREFIXES = {
+    chr(15): 0x2828,  # uppercase prefix: https://codepoints.net/U+000F
+}
+
 # English based locales
 
 EN_ASCII = " A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)="
@@ -14,6 +18,7 @@ EN_ASCII = " A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)="
 # Spanish based locales
 
 ES_NUMBERS = {
+    "0": 0x281a,
     "1": 0x2801,
     "2": 0x2803,
     "3": 0x2809,
@@ -23,7 +28,6 @@ ES_NUMBERS = {
     "7": 0x281b,
     "8": 0x2813,
     "9": 0x280a,
-    "0": 0x281a,
 }
 
 ES_LETTERS = {
@@ -57,6 +61,7 @@ ES_LETTERS = {
 }
 
 ES_SIGNS = {
+    " ": 0x2800,  # braille space
     "ª": 0x2801,  # ordinal (feminine)  -> same as A
     "º": 0x2815,  # ordinal (masculine) -> same as O
     "&": 0x282f,
@@ -71,17 +76,17 @@ ES_SIGNS = {
     '"': 0x2826,
     "(": 0x2823,
     ")": 0x281c,
-    "-": 0x2824,
+    # "[": 0x2837,  collides with "Á" (Spanish and Catalan)
+    # "]": 0x283e,  collides with "Ú" (Spanish and Catalan)
     "*": 0x2814,
+
+    # math
+    "-": 0x2824,
     "=": 0x2836,
-    "÷": 0x2832,
+    "×": 0x2826,  # multiplication
+    "÷": 0x2832,  # division
     "+": 0x2816,
     "@": 0x2810,
-    " ": 0x2800,  # braille space
-}
-
-ES_PREFIXES = {
-    chr(15): 0x2828,  # uppercase prefix: https://codepoints.net/U+000F
 }
 
 ES_ACCENT_MARKS = {
@@ -96,11 +101,7 @@ ES_ACCENT_MARKS = {
 ES_COMBINATIONS = {
     # signs
     "%": (0x2838, 0x2834),
-    "‰": (0x2838, 0x2834, 0x2834),  # per mile
-    "©": (0x2823, 0x2828, 0x2809, 0x281c),
-    "®": (0x2823, 0x2828, 0x2817, 0x281c),
-    "℗": (0x2823, 0x2828, 0x280f, 0x281c),
-    "🄯": (0x2823, 0x2828, 0x2807, 0x281c),
+    "‰": (0x2838, 0x2834, 0x2834),          # per mile
     "/": (0x2820, 0x2802),
     "\\": (0x2810, 0x2804),
     "<": (0x2810, 0x2805),
@@ -108,7 +109,15 @@ ES_COMBINATIONS = {
     "|": (0x2838, 0x2807),
     "{": (0x2810, 0x2807),
     "}": (0x2838, 0x2802),
+    "–": (0x2824, 0x2824),  # two different unicode dashes
     "—": (0x2824, 0x2824),
+    "…": (0x2804, 0x2804, 0x2804),
+
+    # legal
+    "©": (0x2823, 0x2828, 0x2809, 0x281c),  # copyright
+    "®": (0x2823, 0x2828, 0x2817, 0x281c),  # registered
+    "℗": (0x2823, 0x2828, 0x280f, 0x281c),
+    "🄯": (0x2823, 0x2828, 0x2807, 0x281c),
 
     # currencies
     "€": (0x2838, 0x2811),
@@ -132,6 +141,140 @@ CA_ACCENT_MARKS = {
     "Ç": 0x282f,
 }
 
+# French based locales
+
+FR_NUMBERS = {
+    "0": 0x283c,
+    "1": 0x2821,
+    "2": 0x2823,
+    "3": 0x2829,
+    "4": 0x2839,
+    "5": 0x2831,
+    "6": 0x282b,
+    "7": 0x283b,
+    "8": 0x2833,
+    "9": 0x282a,
+}
+
+FR_LETTERS = {
+    "A": 0x2801,
+    "B": 0x2803,
+    "C": 0x2809,
+    "D": 0x2819,
+    "E": 0x2811,
+    "F": 0x280b,
+    "G": 0x281b,
+    "H": 0x2813,
+    "I": 0x280a,
+    "J": 0x281a,
+    "K": 0x2805,
+    "L": 0x2807,
+    "M": 0x280d,
+    "N": 0x281d,
+    "O": 0x2815,
+    "P": 0x280f,
+    "Q": 0x281f,
+    "R": 0x2817,
+    "S": 0x280e,
+    "T": 0x281e,
+    "U": 0x2825,
+    "V": 0x2827,
+    "W": 0x283a,
+    "X": 0x282d,
+    "Y": 0x283d,
+    "Z": 0x2835,
+}
+
+FR_ACCENT_MARKS = {
+    "É": 0x283f,
+    "À": 0x2837,
+    "È": 0x282e,
+    "Ù": 0x283e,
+    "Â": 0x2821,
+    "Ê": 0x2823,
+    "Î": 0x2829,
+    "Ô": 0x2839,
+    "Û": 0x2831,
+    "Ë": 0x282b,
+    "Ï": 0x283b,
+    "Ü": 0x2833,
+    "Ç": 0x282f,
+    "Œ": 0x282a,  # oe ligature
+}
+
+FR_SIGNS = {
+    " ": 0x2800,  # braille space
+    ",": 0x2802,
+    ";": 0x2806,
+    ":": 0x2812,
+    ".": 0x2832,
+    "?": 0x2822,
+    "!": 0x2816,
+    "«": 0x2836,
+    "»": 0x2836,
+    "“": 0x2836,
+    "”": 0x2836,
+    '"': 0x2836,
+    "‘": 0x2836,
+    "’": 0x2836,
+    "(": 0x2826,
+    ")": 0x2834,
+    "'": 0x2804,
+    "'": 0x2804,
+    "/": 0x280c,
+    "@": 0x281c,
+    "^": 0x2808,  # elevation exponent
+    "-": 0x2824,
+    "+": 0x2816,
+    "×": 0x2814,  # multiplication
+    "÷": 0x2812,  # division
+    "=": 0x2836,
+}
+
+FR_COMBINATIONS = {
+    "↔": (0x282a, 0x2812, 0x2815),  # bidirectional arrow
+    "←": (0x282a, 0x2812, 0x2812),  # left arrow
+    "→": (0x2812, 0x2812, 0x2815),  # right arrow
+    "…": (0x2832, 0x2832, 0x2832),  # unicode ellipsis
+    "–": (0x2824, 0x2824),
+    "—": (0x2824, 0x2824),
+    "_": (0x2810, 0x2824),
+    "[": (0x2818, 0x2826),
+    "]": (0x2834, 0x2803),
+    "°": (0x2810, 0x2815),  # degrees
+    "§": (0x2810, 0x280f),  # paragraph/section symbol
+    "&": (0x2810, 0x283f),
+    "\\": (0x2810, 0x280c),
+    "#": (0x2810, 0x283c),
+    "{": (0x2820, 0x2820, 0x2826),
+    "}": (0x2834, 0x2804, 0x2804),
+
+    # math
+    "µ": (0x2818, 0x280d),  # micron
+    "π": (0x2818, 0x280f),
+    "≤": (0x2818, 0x2823),
+    "≥": (0x2818, 0x281c),
+    "<": (0x2810, 0x2823),
+    ">": (0x2810, 0x281c),
+    "~": (0x2810, 0x2822),
+    "*": (0x2810, 0x2814),
+    "%": (0x2810, 0x282c),
+    "‰": (0x2810, 0x282c, 0x282c),  # per mile
+
+    # legal
+    "©": (0x2810, 0x2809),  # copyright
+    "®": (0x2810, 0x2817),  # registered
+    "™": (0x2810, 0x281e),  # trademark
+
+    # currencies
+    "¢": (0x2818, 0x2809),
+    "€": (0x2818, 0x2811),
+    "£": (0x2818, 0x2807),
+    "$": (0x2818, 0x280e),
+    "¥": (0x2818, 0x283d),
+    "￥": (0x2818, 0x283d),
+}
+
 # END: UTILITIES
 
 # ---------------------------------
@@ -146,69 +289,117 @@ def en_char_map(char):
         return char
     return chr(mapint + 0x2800)
 
-def es_char_map(char):
-    """Spanish/Galician/Euskera chars mappers.
+def number_singleupper_combinations_factory(
+    numbers_map,
+    singleuppers_map,
+    combinations_map,
+    number_prefix,
+    uppercase_prefix,
+):
+    """Wrapper for various character mappers implementations."""
+    def char_mapper(char):
+        if char.isnumeric():
+            # numeric prefix + number
+            return "".join([chr(number_prefix), chr(numbers_map[char])])
+        try:
+            bcharint = singleuppers_map[char.upper()]
+        except KeyError:
+            try:
+                # combinations
+                return "".join([chr(num) for num in combinations_map[char]])
+            except KeyError:
+                return char
+        else:
+            # if uppercase, add uppercase prefix before letter
+            if char.isupper():
+                return "".join([chr(uppercase_prefix), chr(bcharint)])
+            return chr(bcharint)
+    return char_mapper
+
+def es_char_map_loader():
+    """Spanish/Galician chars mappers.
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    if char.isnumeric():
-        # numeric prefix + number
-        return "".join([chr(0x283c), chr(ES_NUMBERS[char])])
-    try:
-        bcharint = {
+    return number_singleupper_combinations_factory(
+        ES_NUMBERS,
+        {
             **ES_LETTERS,
             **ES_ACCENT_MARKS,
             **ES_SIGNS,
-            **ES_PREFIXES,
-        }[char.upper()]
-    except KeyError:
-        try:
-            # combinations
-            return "".join([chr(num) for num in ES_COMBINATIONS[char]])
-        except KeyError:
-            return char
-    else:
-        # if uppercase, add uppercase prefix before letter
-        if char.isupper():
-            return "".join([chr(0x2828), chr(bcharint)])
-        return chr(bcharint)
+            **UPPERCASE_PREFIXES,
+        },
+        ES_COMBINATIONS,
+        0x283c,
+        0x2828,
+    )
 
-def ca_char_map(char):
+def eu_char_map_loader():
+    """Euskera chars mapper.
+
+    Uses the sample implementation as Spanish but without accent marks.
+
+    Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
+    """
+    return number_singleupper_combinations_factory(
+        ES_NUMBERS,
+        {
+            **ES_LETTERS,
+            **ES_SIGNS,
+            **UPPERCASE_PREFIXES,
+        },
+        ES_COMBINATIONS,
+        0x283c,
+        0x2828,
+    )
+
+def ca_char_map_loader():
     """Catalan/Valencian chars mappers. Uses the same implementation as
     Spanish but different accent marks.
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    if char.isnumeric():
-        # numeric prefix + number
-        return "".join([chr(0x283c), chr(ES_NUMBERS[char])])
-    try:
-        bcharint = {
+    return number_singleupper_combinations_factory(
+        ES_NUMBERS,
+        {
             **ES_LETTERS,
             **CA_ACCENT_MARKS,
             **ES_SIGNS,
-            **ES_PREFIXES,
-        }[char.upper()]
-    except KeyError:
-        try:
-            # combinations
-            return "".join([chr(num) for num in ES_COMBINATIONS[char]])
-        except KeyError:
-            return char
-    else:
-        # if uppercase, add uppercase prefix before letter
-        if char.isupper():
-            return "".join([chr(0x2828), chr(bcharint)])
-        return chr(bcharint)
+            **UPPERCASE_PREFIXES,
+        },
+        ES_COMBINATIONS,
+        0x283c,
+        0x2828,
+    )
+
+def fr_char_map_loader():
+    """Catalan/Valencian chars mappers. Uses the same implementation as
+    Spanish but different accent marks.
+
+    Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
+    """
+    return number_singleupper_combinations_factory(
+        FR_NUMBERS,
+        {
+            **FR_LETTERS,
+            **FR_ACCENT_MARKS,
+            **FR_SIGNS,
+            **UPPERCASE_PREFIXES,
+        },
+        FR_COMBINATIONS,
+        0x283c,
+        0x2828,
+    )
 
 # END: LOCALE FUNCTIONS
 
 LOCALE_CHARMAPS = {
     "en": en_char_map,
-    "es": es_char_map,
-    "gl": es_char_map,  # Galician uses Spanish alphabet
-    "eu": es_char_map,  # Euskera hasn't accent marks but uses Spanish alphabet
-    "ca": ca_char_map,  # Catalan/Valencian
+    "es": es_char_map_loader,
+    "fr": fr_char_map_loader,
+    "gl": es_char_map_loader,  # Galician
+    "eu": eu_char_map_loader,  # Euskera
+    "ca": ca_char_map_loader,  # Catalan/Valencian
 }
 
 # ---------------------------------
@@ -217,8 +408,8 @@ LOCALE_CHARMAPS = {
 
 class BrailleL18n(inkex.TextExtension):
     """Convert to Braille giving a localized map of replacements."""
-    def add_arguments(self, pars):
-        pars.add_argument(
+    def add_arguments(self, parser):
+        parser.add_argument(
             "-l", "--locale", type=str, dest="locale", default="en",
             choices=LOCALE_CHARMAPS.keys(),
             help="Locale to use converting to Braille.",
@@ -226,7 +417,15 @@ class BrailleL18n(inkex.TextExtension):
     
     def process_chardata(self, text):
         """Replaceable chardata method for processing the text."""
-        return ''.join(map(LOCALE_CHARMAPS[self.options.locale], text))
+        chars_mapper = LOCALE_CHARMAPS[self.options.locale]
+
+        # `chars_mapper` could be a function loader or a characters mapper
+        # itself, so check if the characters mapper is loaded and load it
+        # if is created from a factory
+        if "loader" in chars_mapper.__name__:
+            chars_mapper = chars_mapper()
+
+        return ''.join(map(chars_mapper, text))
 
 if __name__ == '__main__':
     BrailleL18n().run()
