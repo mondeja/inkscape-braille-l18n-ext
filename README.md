@@ -12,6 +12,7 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 | ------ | ------ |
 | English | [North American Braille ASCII code][en-wiki] |
 | Spanish | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
+| French  | [Code Braille Français Uniformisé (CBFU)][fr-cbfu] |
 | Galician | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 | Euskera | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 | Catalan/Valencian | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
@@ -33,6 +34,11 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 1. Choose an alphabet for character mappings.
 1. Press `Apply`.
 
+## Contribute!
+
+PRs are welcome. See [CONTRIBUTING.md][contribution-guide] for a detailed guide
+about how to contribute to this project.
+
 <!-- Badges -->
 
 [inkscape-versions-badge]: https://img.shields.io/static/v1?label=inkscape&message=1.0%20|%201.1&color=blue&logo=Inkscape
@@ -47,10 +53,11 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 [download-repo]: https://github.com/mondeja/inkscape-braille-l18n-ext/archive/refs/heads/master.zip
 [ext-inx]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/text_braille_l18n.inx
 [ext-py]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/text_braille_l18n.py
+[contribution-guide]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/CONTRIBUTING.md
 
 <!-- Sources -->
 
 [en-wiki]: https://en.wikipedia.org/wiki/Braille_ASCII
 [es-cbe-guide]: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
+[fr-cbfu]: https://www.avh.asso.fr/sites/default/files/cbfu_edition_internationale_1.pdf
 [cbe-once]: https://www.once.es/servicios-sociales/braille/comision-braille-espanola/comision-braille-espanola-cbe
-[world-braille-usage]: https://1kru3o1eyt4f2w3qy21ds14w-wpengine.netdna-ssl.com/wp-content/uploads/2021/07/world-braille-usage-third-edition.pdf

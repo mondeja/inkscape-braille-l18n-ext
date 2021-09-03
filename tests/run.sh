@@ -9,6 +9,14 @@
   Environment variables:
 
   - DEBUG: If not empty, all executed commands will be shown in the output.
+  - LOCALES: Specify a set of locales to test, separated by commas. If empty,
+      all locales will be tested.
+  - GUI: If not empty, the tests will be executed in GUI mode, which is useful
+      if you need to debug errors from the extension. If not active, exceptions
+      like syntax errors in the extension will cause the Inkscape batch command
+      execution to be frozen.
+  - NO_COLOR: If defined, the difference between expected and produced output
+      and will be shown in black/white.
 '
 
 error() {
@@ -84,22 +92,33 @@ test_extension_effect() {
   txt_output_filepath="tests/tmp/$locale.out.txt"
   txt_expect_filepath="tests/$locale.expect.txt"
 
-  if [ ! -f "$txt_expect_filepath" ]; then
-    error "File '$txt_expect_filepath' was expected to exist but not found!\nTests aborted.\n"
-    exit 1
-  fi;
-
   printf "TEST: locale=$locale\n"
+
+  # if test file doesn't exists
+  if [ ! -f "$txt_expect_filepath" ]; then
+    error "File '$txt_expect_filepath' was expected to exist but not found!\n\n"
+    printf "1" > "tests/tmp/exitcode"
+    return 0
+  fi;
 
   # configure parameters for extension
   configure_profile_preferences "$locale"
 
+  # Xvfb command used
+  xvfb_command="xvfb-run --auto-servernum"
+  if [ -n "$GUI" ]; then
+    xvfb_command=""
+  fi
+
   # run extension using inkscape in headless mode with Xvfb
-  xvfb-run --auto-servernum inkscape \
+  $xvfb_command inkscape \
     --batch-process \
     --export-plain-svg \
     --vacuum-defs \
-    --actions="select-by-element:text;org.inkscape.text.braille-l18n.noprefs;export-filename:$svg_output_filepath;export-do" \
+    --actions="select-by-element:text;
+org.inkscape.text.braille-l18n.noprefs;
+export-filename:$svg_output_filepath;
+export-do;" \
     tests/input.svg
 
   # extract braille output from produced SVG and save in other file
@@ -107,10 +126,19 @@ test_extension_effect() {
 
   if ! diff --brief "$txt_output_filepath" "$txt_expect_filepath"; then
     printf "<: $txt_output_filepath\n>: $txt_expect_filepath\n"
+
+    # set ouput color format
+    color_option="--color"
+    if [ -n "$NO_COLOR" ]; then
+      color_option=""
+    fi
+
     # ignore error (or file exits due to 'set -e')
-    diff --color "$txt_output_filepath" "$txt_expect_filepath" || true
+    diff $color_option "$txt_output_filepath" "$txt_expect_filepath" || true
     printf "\n"
     printf "1" > "tests/tmp/exitcode"
+  else
+    printf "\n"
   fi
 }
 

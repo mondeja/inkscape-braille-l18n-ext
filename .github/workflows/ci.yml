@@ -23,7 +23,7 @@ jobs:
       DISPLAY: :0
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Install tests dependencies
         run: sudo apt-get install -y xvfb
       - name: Install Inkscape
         run: |
@@ -33,4 +33,4 @@ jobs:
       - name: Start Xvfb in background
         run: sudo /usr/bin/Xvfb $DISPLAY -screen 0 1280x1024x24 &
       - name: Run tests
-        run: sh tests/run.sh
+        run: NO_COLOR=1 sh tests/run.sh
