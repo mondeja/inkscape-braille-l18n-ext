@@ -21,10 +21,11 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 
 ## Installation
 
-1. [Download][download-repo] and extract this repository.
-1. Move [text_braille_l18n.inx][ext-inx] and [text_braille_l18n.py][ext-py]
- files to your user's extensions directory. If you don't know its location,
- open it from `Edit` -> `Preferences` -> `System` -> `Users extensions`.
+1. Download `braille-l18n.zip` asset from [Releases page][releases] and extract
+ it.
+1. Move extracted files to your Inkscape user's extensions directory. If you
+ don't know its location, open it from `Edit` -> `Preferences` -> `System` ->
+ `Users extensions`.
 1. Run Inkscape and you'll see the extension in `Extensions` -> `Text`.
 
 ## Usage
@@ -50,9 +51,7 @@ about how to contribute to this project.
 <!-- Internal links -->
 
 [notes]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/NOTES.md
-[download-repo]: https://github.com/mondeja/inkscape-braille-l18n-ext/archive/refs/heads/master.zip
-[ext-inx]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/text_braille_l18n.inx
-[ext-py]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/text_braille_l18n.py
+[releases]: https://github.com/mondeja/inkscape-braille-l18n-ext/releases
 [contribution-guide]: https://github.com/mondeja/inkscape-braille-l18n-ext/blob/master/CONTRIBUTING.md
 
 <!-- Sources -->
