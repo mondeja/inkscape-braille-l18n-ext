@@ -36,7 +36,7 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 
 ## Contribute!
 
-PRs are welcome. In [CONTRIBUTING.md][contribution-guide] you'll see a guide
+PRs are welcome. See [CONTRIBUTING.md][contribution-guide] for a detailed guide
 about how to contribute to this project.
 
 <!-- Badges -->
