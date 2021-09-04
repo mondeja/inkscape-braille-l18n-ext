@@ -343,7 +343,7 @@ def en_char_map(char):
         return char
     return chr(mapint + 0x2800)
 
-def number_singleupper_combinations_factory(
+def numbers_singleuppers_combinations_factory(
     numbers_map,
     singleuppers_map,
     combinations_map,  # also individual characters that are modified if uppercased
@@ -375,7 +375,7 @@ def es_char_map_loader():
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    return number_singleupper_combinations_factory(
+    return numbers_singleuppers_combinations_factory(
         LOUIS_BRAILLE_NUMBERS,
         {
             **ES_LETTERS,
@@ -395,7 +395,7 @@ def eu_char_map_loader():
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    return number_singleupper_combinations_factory(
+    return numbers_singleuppers_combinations_factory(
         LOUIS_BRAILLE_NUMBERS,
         {
             **ES_LETTERS,
@@ -413,7 +413,7 @@ def ca_char_map_loader():
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    return number_singleupper_combinations_factory(
+    return numbers_singleuppers_combinations_factory(
         LOUIS_BRAILLE_NUMBERS,
         {
             **ES_LETTERS,
@@ -431,7 +431,7 @@ def fr_char_map_loader():
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    return number_singleupper_combinations_factory(
+    return numbers_singleuppers_combinations_factory(
         LOUIS_BRAILLE_NUMBERS,
         {
             **FR_LETTERS,
@@ -451,7 +451,7 @@ def de_char_map_loader():
 
     Source: http://bskdl.org/textschrift.html
     """
-    return number_singleupper_combinations_factory(
+    return numbers_singleuppers_combinations_factory(
         LOUIS_BRAILLE_NUMBERS,
         {
             **FR_LETTERS,  # Same as French implementation
