@@ -21,8 +21,6 @@ Implementation of [CBE guide][es-cbe-guide].
 
 Implementation of [Code Braille Français Uniformisé (CBFU)][fr-cbfu].
 
-- Ordinals are ignored.
-
 ## German - Das System der deutschen Brailleschrift
 
 Implementation of [Das System der deutschen Brailleschrift][de-system] (created
