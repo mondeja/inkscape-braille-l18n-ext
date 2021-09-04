@@ -49,7 +49,7 @@ each locale is stored.
 1. Create the expected file for the locale in `tests/{locale}.expect.txt`.
 1. Add the language to README [Supported alphabets][supported-alphabets-table]
  table.
-1. Add a note with details about the implementation for that language in
+1. Add a section with details about the implementation for that language in
  [NOTES.md][notes]. This is specially useful if the implementation contains
  singularities and will help future developers to maintain the code.
 

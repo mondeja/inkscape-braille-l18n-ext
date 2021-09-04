@@ -13,11 +13,12 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 | English | [North American Braille ASCII code][en-wiki] |
 | Spanish | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 | French  | [Code Braille Français Uniformisé (CBFU)][fr-cbfu] |
+| German  | [Das System der deutschen Brailleschrift][de-system] by [BSKDL][bskdl]|
 | Galician | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 | Euskera | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 | Catalan/Valencian | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 
-> See [NOTES.md][notes] to check the limitations of each implementation.
+> See [NOTES.md][notes] to details of each implementation.
 
 ## Installation
 
@@ -58,5 +59,7 @@ about how to contribute to this project.
 
 [en-wiki]: https://en.wikipedia.org/wiki/Braille_ASCII
 [es-cbe-guide]: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
-[fr-cbfu]: https://www.avh.asso.fr/sites/default/files/cbfu_edition_internationale_1.pdf
 [cbe-once]: https://www.once.es/servicios-sociales/braille/comision-braille-espanola/comision-braille-espanola-cbe
+[fr-cbfu]: https://www.avh.asso.fr/sites/default/files/cbfu_edition_internationale_1.pdf
+[de-system]: http://bskdl.org/textschrift.html
+[bskdl]: http://bskdl.org
