@@ -7,17 +7,15 @@ import inkex
 
 # UTILITIES
 
+# Common standards
+
 UPPERCASE_PREFIXES = {
     chr(15): 0x2828,  # uppercase prefix: https://codepoints.net/U+000F
 }
 
-# English based locales
 
-EN_ASCII = " A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)="
-
-# Spanish based locales
-
-ES_NUMBERS = {
+LOUIS_BRAILLE_NUMBERS_PREFIX = 0x283c  # Louis Braille's numbers prefix
+LOUIS_BRAILLE_NUMBERS = {  # Louis Braille's original numbers codification
     "0": 0x281a,
     "1": 0x2801,
     "2": 0x2803,
@@ -29,6 +27,14 @@ ES_NUMBERS = {
     "8": 0x2813,
     "9": 0x280a,
 }
+
+# ---------------------
+
+# English based locales
+
+EN_ASCII = " A1B'K2L@CIF/MSP\"E3H9O6R^DJG>NTQ,*5<-U8V.%[$+X!&;:4\\0Z7(_?W]#Y)="
+
+# Spanish based locales
 
 ES_LETTERS = {
     "A": 0x2801,
@@ -142,19 +148,6 @@ CA_ACCENT_MARKS = {
 }
 
 # French based locales
-
-FR_NUMBERS = {
-    "0": 0x283c,
-    "1": 0x2821,
-    "2": 0x2823,
-    "3": 0x2829,
-    "4": 0x2839,
-    "5": 0x2831,
-    "6": 0x282b,
-    "7": 0x283b,
-    "8": 0x2833,
-    "9": 0x282a,
-}
 
 FR_LETTERS = {
     "A": 0x2801,
@@ -275,6 +268,64 @@ FR_COMBINATIONS = {
     "￥": (0x2818, 0x283d),
 }
 
+# German based locales
+
+DE_ACCENT_MARKS = {
+    "Ä": 0x281c,
+    "Ö": 0x282a,
+    "Ü": 0x2833,
+}
+
+DE_SIGNS = {
+    " ": 0x2800,  # braille space
+    ",": 0x2802,
+    ";": 0x2806,
+    ":": 0x2812,
+    "?": 0x2822,
+    "!": 0x2816,
+    "„": 0x2826,
+    "“": 0x2834,
+    "§": 0x282c,
+    ".": 0x2804,
+    "–": 0x2824,
+    "‚": 0x2820,
+}
+
+DE_COMBINATIONS = {
+    # signs
+    "ß": (0x282e,),  # converted to 'SS' if uppercased, so defined in combinations
+    "|": (0x2810, 0x2824),
+    "[": (0x2818, 0x2837),
+    "]": (0x2818, 0x283e),
+    "/": (0x2818, 0x280c),
+    "`": (0x2820, 0x2826),
+    "´": (0x2820, 0x2834),
+    "/": (0x2810, 0x2802),
+    "&": (0x2810, 0x2825),
+    "*": (0x2820, 0x2814),
+    "→": (0x2812, 0x2812, 0x2815),
+    "←": (0x282a, 0x2812, 0x2812),
+    "↔": (0x282a, 0x2812, 0x2812, 0x2815),
+    "%": (0x283c, 0x281a, 0x2834),
+    "‰": (0x283c, 0x281a, 0x2834, 0x2834),
+    "°": (0x2808, 0x2834),
+    "′": (0x2808, 0x2814),
+    "″": (0x2808, 0x2814, 0x2814),
+    "@": (0x2808, 0x281c),
+    "_": (0x2808, 0x2838),
+    "#": (0x2808, 0x283c),
+
+    # currencies
+    "€": (0x2808, 0x2811),
+    "$": (0x2808, 0x280e),
+    "¢": (0x2808, 0x2809),
+    "£": (0x2808, 0x2807),
+
+    # legal
+    "©": (0x2836, 0x2818, 0x2809, 0x2836),
+    "®": (0x2836, 0x2818, 0x2817, 0x2836),
+}
+
 # END: UTILITIES
 
 # ---------------------------------
@@ -282,17 +333,20 @@ FR_COMBINATIONS = {
 # LOCALE FUNCTIONS
 
 def en_char_map(char):
-    # https://en.wikipedia.org/wiki/Braille_ASCII#Braille_ASCII_values
+    """English chars mapper.
+
+    Source: https://en.wikipedia.org/wiki/Braille_ASCII#Braille_ASCII_values
+    """
     try:
         mapint = EN_ASCII.index(char.upper())
     except ValueError:
         return char
     return chr(mapint + 0x2800)
 
-def number_singleupper_combinations_factory(
+def numbers_singleuppers_combinations_factory(
     numbers_map,
     singleuppers_map,
-    combinations_map,
+    combinations_map,  # also individual characters that are modified if uppercased
     number_prefix,
     uppercase_prefix,
 ):
@@ -321,8 +375,8 @@ def es_char_map_loader():
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    return number_singleupper_combinations_factory(
-        ES_NUMBERS,
+    return numbers_singleuppers_combinations_factory(
+        LOUIS_BRAILLE_NUMBERS,
         {
             **ES_LETTERS,
             **ES_ACCENT_MARKS,
@@ -341,8 +395,8 @@ def eu_char_map_loader():
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    return number_singleupper_combinations_factory(
-        ES_NUMBERS,
+    return numbers_singleuppers_combinations_factory(
+        LOUIS_BRAILLE_NUMBERS,
         {
             **ES_LETTERS,
             **ES_SIGNS,
@@ -359,8 +413,8 @@ def ca_char_map_loader():
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    return number_singleupper_combinations_factory(
-        ES_NUMBERS,
+    return numbers_singleuppers_combinations_factory(
+        LOUIS_BRAILLE_NUMBERS,
         {
             **ES_LETTERS,
             **CA_ACCENT_MARKS,
@@ -373,13 +427,12 @@ def ca_char_map_loader():
     )
 
 def fr_char_map_loader():
-    """Catalan/Valencian chars mappers. Uses the same implementation as
-    Spanish but different accent marks.
+    """French chars mapper.
 
     Source: https://sid.usal.es/idocs/F8/FDO12069/signografiabasica.pdf
     """
-    return number_singleupper_combinations_factory(
-        FR_NUMBERS,
+    return numbers_singleuppers_combinations_factory(
+        LOUIS_BRAILLE_NUMBERS,
         {
             **FR_LETTERS,
             **FR_ACCENT_MARKS,
@@ -391,12 +444,33 @@ def fr_char_map_loader():
         0x2828,
     )
 
+def de_char_map_loader():
+    """German chars mapper.
+
+    - For letters, uses the same dictionary as French implementation.
+
+    Source: http://bskdl.org/textschrift.html
+    """
+    return numbers_singleuppers_combinations_factory(
+        LOUIS_BRAILLE_NUMBERS,
+        {
+            **FR_LETTERS,  # Same as French implementation
+            **DE_ACCENT_MARKS,
+            **DE_SIGNS,
+            **UPPERCASE_PREFIXES,
+        },
+        DE_COMBINATIONS,
+        0x283c,
+        0x2828,
+    )
+
 # END: LOCALE FUNCTIONS
 
 LOCALE_CHARMAPS = {
-    "en": en_char_map,
-    "es": es_char_map_loader,
-    "fr": fr_char_map_loader,
+    "en": en_char_map,         # English
+    "es": es_char_map_loader,  # Spanish
+    "fr": fr_char_map_loader,  # French
+    "de": de_char_map_loader,  # German
     "gl": es_char_map_loader,  # Galician
     "eu": eu_char_map_loader,  # Euskera
     "ca": ca_char_map_loader,  # Catalan/Valencian
