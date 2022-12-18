@@ -43,7 +43,7 @@ about how to contribute to this project.
 
 <!-- Badges -->
 
-[inkscape-versions-badge]: https://img.shields.io/static/v1?label=inkscape&message=1.0%20|%201.1&color=blue&logo=Inkscape
+[inkscape-versions-badge]: https://img.shields.io/static/v1?label=inkscape&message=1.0%20|%201.1%20|%201.2&color=blue&logo=Inkscape
 [tests-image]: https://img.shields.io/github/actions/workflow/status/mondeja/inkscape-braille-l18n-ext/ci.yml?branch=master&logo=github&label=tests
 [tests-link]: https://github.com/mondeja/inkscape-braille-l18n-ext/actions?query=workflow%3ACI
 [license-image]: https://img.shields.io/static/v1?label=license&message=BSD-3-Clause&color=brightgreen&logo=freebsd
