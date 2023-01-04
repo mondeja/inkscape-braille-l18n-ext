@@ -1,7 +1,7 @@
 # Contributions guide
 
-You only need Inkscape>=1.0, a posix shell and (optionally) the
-[xvfb][xvfb-package] package to develop and test.
+You only need Inkscape>=1.0, a posix shell and the [xvfb][xvfb-package]
+package to develop and test.
 
 ## Make changes to the code
 
