@@ -18,7 +18,7 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 | Euskera | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 | Catalan/Valencian | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 
-> See [NOTES.md][notes] to details of each implementation.
+> See [NOTES.md][notes] for details of each implementation.
 
 ## Installation
 
@@ -26,7 +26,7 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
  it.
 1. Move extracted files to your Inkscape user's extensions directory. If you
  don't know its location, open it from `Edit` -> `Preferences` -> `System` ->
- `Users extensions`.
+ `Users extensions` or executing `inkscape --user-data-directory` on your terminal.
 1. Run Inkscape and you'll see the extension in `Extensions` -> `Text`.
 
 ## Usage
