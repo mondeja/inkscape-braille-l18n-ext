@@ -18,7 +18,7 @@ Text-to-Braille Inkscape extension with multiple localized alphabets.
 | Euskera | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 | Catalan/Valencian | [Braille español (Grado 1)][es-cbe-guide] by [CBE][cbe-once] |
 
-> See [NOTES.md][notes] to details of each implementation.
+> See [NOTES.md][notes] for details of each implementation.
 
 ## Installation
 
