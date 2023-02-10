@@ -57,4 +57,4 @@ Uses same implementation as Spanish.
 [fr-cbfu]: https://www.avh.asso.fr/sites/default/files/cbfu_edition_internationale_1.pdf
 [de-system]: http://bskdl.org/textschrift.html
 [bskdl]: http://bskdl.org
-[world-braille-usage]: https://1kru3o1eyt4f2w3qy21ds14w-wpengine.netdna-ssl.com/wp-content/uploads/2021/07/world-braille-usage-third-edition.pdf
+[world-braille-usage]: https://www.perkins.org/resource/world-braille-usage/
